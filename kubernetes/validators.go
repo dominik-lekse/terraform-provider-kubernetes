@@ -9,6 +9,7 @@ import (
 
 	"k8s.io/apimachinery/pkg/api/resource"
 	apiValidation "k8s.io/apimachinery/pkg/api/validation"
+	//"k8s.io/apimachinery/pkg/api/validation/path"
 	utilValidation "k8s.io/apimachinery/pkg/util/validation"
 )
 
@@ -36,6 +37,18 @@ func validateName(value interface{}, key string) (ws []string, es []error) {
 	}
 	return
 }
+
+//func validateRBACName(value interface{}, key string) (ws []string, es []error) {
+//	v := value.(string)
+//
+//	errors := path.IsValidPathSegmentName(v)
+//	if len(errors) > 0 {
+//		for _, err := range errors {
+//			es = append(es, fmt.Errorf("%s %s", key, err))
+//		}
+//	}
+//	return
+//}
 
 func validateGenerateName(value interface{}, key string) (ws []string, es []error) {
 	v := value.(string)
